@@ -1,0 +1,9 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    text-align: center;
+    align-items: center;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
