@@ -1,9 +1,16 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from "redux";
+import categoriesReducer from "./categories";
+import postsReducer from "./posts";
+import commentsReducer from "./comments";
+import sortByReducer from "./sort";
+import postReducer from "./post";
 
-function test(state = {}, action){
-return null
-}
+const combinedReducers = combineReducers({
+  categoriesReducer,
+  postReducer,
+  commentsReducer,
+  postsReducer,
+  sortByReducer,
+});
 
-const combinedReducers = combineReducers({test})
-
-export default combinedReducers
+export default combinedReducers;

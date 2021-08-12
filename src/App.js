@@ -8,9 +8,12 @@ import NewPost from "./routes/NewPost";
 import PostDetailPage from "./routes/PostDetailPage";
 import EditPost from "./routes/EditPost";
 import NotFound from "./routes/NotFound";
+import {getAllCategories, getPostsByCategory} from './utils/api'
 
 class App extends Component {
   render() {
+    console.log(getAllCategories())
+    console.log(getPostsByCategory('react'));
     return (
       <div className="App">
         <Navbar title="Discussion Board" />
