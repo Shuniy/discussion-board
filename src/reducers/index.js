@@ -6,11 +6,11 @@ import sortByReducer from "./sort";
 import postReducer from "./post";
 
 const combinedReducers = combineReducers({
-  categoriesReducer,
-  postReducer,
-  commentsReducer,
-  postsReducer,
-  sortByReducer,
+  categories: categoriesReducer,
+  post: postReducer,
+  comment: commentsReducer,
+  posts: postsReducer,
+  sortBy: sortByReducer,
 });
 
 export default combinedReducers;
