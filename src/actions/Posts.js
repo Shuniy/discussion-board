@@ -1,14 +1,11 @@
-export const GET_POSTS_BY_CATEGORY = "GET_POSTS_BY_CATEGORY";
-
-export const UPVOTE_TO_POST = "UPVOTE_TO_POST";
-
-export const DOWNVOTE_TO_POST = "DOWNVOTE_TO_POST";
-
-export const ADD_POST = "ADD_POST";
-
-export const DELETE_POST = "DELETE_POST";
-
-export const EDIT_POST_BY_POST_ID = "EDIT_POST_BY_POST_ID";
+import {
+  GET_POSTS_BY_CATEGORY,
+  DELETE_POST,
+  UPVOTE_TO_POST,
+  DOWNVOTE_TO_POST,
+  ADD_POST,
+  EDIT_POST_BY_POST_ID,
+} from "./constants";
 
 // action creaters
 

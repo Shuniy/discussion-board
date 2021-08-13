@@ -50,6 +50,7 @@ function mapStateToProps({ posts, categories, sortBy }) {
 
 const mapDispatchToProps = (dispatch) => ({
   changeSortBy: (event) => dispatch(setSortBy(event.target.value)),
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AllPosts);

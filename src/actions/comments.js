@@ -1,24 +1,13 @@
-// Success is for acknowledgement
 // Action we will perform on the comments
 
-// Get all the comments related to that post
-export const GET_ALL_COMMENTS_BY_POST_ID = "GET_ALL_COMMENTS_BY_POST_ID";
-export const GET_ALL_COMMENTS_BY_POST_ID_RESET =
-  "GET_ALL_COMMENTS_BY_POST_ID_RESET";
-
-// Add a comment
-export const ADD_COMMENT = "ADD_COMMENT";
-
-// delete a comment
-export const DELETE_COMMENT = "DELETE_COMMENT";
-
-// Edit a comment
-export const EDIT_COMMENT = "EDIT_COMMENT";
-// Upvote a comment
-export const UPVOTE_TO_COMMENT = "UPVOTE_TO_COMMENT";
-
-// Downvote a comment
-export const DOWNVOTE_TO_COMMENT = "DOWNVOTE_TO_COMMENT";
+import {
+  GET_ALL_COMMENTS_BY_POST_ID,
+  ADD_COMMENT,
+  DELETE_COMMENT,
+  EDIT_COMMENT,
+  UPVOTE_TO_COMMENT,
+  DOWNVOTE_TO_COMMENT,
+} from "./constants";
 
 // action creaters
 
@@ -33,7 +22,7 @@ export const addComment = (comment) => ({
 });
 
 export const deleteComment = (id) => ({
-  type: ADD_COMMENT,
+  type: DELETE_COMMENT,
   id,
 });
 
