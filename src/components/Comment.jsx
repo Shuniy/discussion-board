@@ -5,6 +5,13 @@ import CloseButton from "./CloseButton";
 import CommentEditForm from "./CommentEditForm";
 import VoteButtons from "./VoteButtons";
 import { dateFormatGlobal } from "../utils/helper";
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  Typography,
+} from "@material-ui/core";
 
 class Comment extends Component {
   state = {
@@ -14,9 +21,11 @@ class Comment extends Component {
   upVote = () => {
     this.props.upVote(this.props.comment.id);
   };
+
   downVote = () => {
     this.props.downVote(this.props.comment.id);
   };
+
   deleteComment = () => {
     this.props.deleteComment(this.props.comment.id);
   };
@@ -39,40 +48,43 @@ class Comment extends Component {
     const renderCommentBody = this.state.editMode ? (
       <CommentEditForm defaultVal={body} editComment={this.editComment} />
     ) : (
-      <div className="d-flex justify-content-between align-items-start">
-        <div className="d-flex align-items-start">
-          {body}&nbsp;
-          <button
-            type="button"
-            className="badge badge-success"
-            onClick={this.editMode}
-          >
-            Edit <i className="fa fa-pencil-square-o" aria-hidden="true" />
-          </button>
+      <div className="">
+        <div className="">
+          <Typography>
+            <strong>{body}</strong>
+          </Typography>
         </div>
-        <CloseButton
-          closeStyle="text-muted"
-          closeHandler={this.deleteComment}
-        />
       </div>
     );
 
     const badgeColor = voteScore >= 10 ? "badge-danger" : "badge-secondary";
     return (
-      <li className="list-group-item list-group-item-warning">
-        {renderCommentBody}
-        <div>
-          <small className="text-muted">commented by {author}</small>
-          {" / "}
-          <small className="text-muted">{dateFormatGlobal(timestamp)}</small>
-        </div>
-        <div className="d-flex justify-content-between align-items-end">
+      <Card className="">
+        <CardContent>
+          {renderCommentBody}
           <Badge label="Vote" badgeColor={badgeColor} voteCount={voteScore} />
-          <div>
-            <VoteButtons voteUp={this.upVote} voteDown={this.downVote} />
-          </div>
-        </div>
-      </li>
+          <Typography className="text-muted">
+            {dateFormatGlobal(timestamp)}
+          </Typography>
+          <Typography className="text-muted">commented by {author}</Typography>
+        </CardContent>
+
+        <CardActions>
+          <VoteButtons voteUp={this.upVote} voteDown={this.downVote} />
+          <CloseButton
+            closeStyle="text-muted"
+            closeHandler={this.deleteComment}
+          />
+          <Button
+            className=""
+            color="primary"
+            variant="contained"
+            onClick={this.editMode}
+          >
+            Edit
+          </Button>
+        </CardActions>
+      </Card>
     );
   }
 }

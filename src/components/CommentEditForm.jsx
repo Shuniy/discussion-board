@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import TextField from "@material-ui/core/TextField";
+import { Button } from "@material-ui/core";
 
 class CommentEditForm extends Component {
   state = {
@@ -19,16 +21,20 @@ class CommentEditForm extends Component {
     return (
       <form onSubmit={this.editComment}>
         <div className="input-group">
-          <input
-            type="text"
+          <TextField
             className="form-control"
             value={this.state.body}
             onChange={this.changeHandler}
           />
-          <div className="input-group-append">
-            <button className="btn btn-outline-secondary" type="submit">
+          <div className="">
+            <Button
+              className=""
+              color="secondary"
+              variant="contained"
+              type="submit"
+            >
               Submit
-            </button>
+            </Button>
           </div>
         </div>
       </form>

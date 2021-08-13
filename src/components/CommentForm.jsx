@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import InputText from "./InputText";
+import { Button, Card, CardActions, CardContent } from "@material-ui/core";
 
 const defaultState = {
   comment: "",
@@ -29,27 +30,33 @@ class CommentForm extends Component {
   render() {
     const { author, comment } = this.state;
     return (
-      <form className="my-4" onSubmit={this.handleSubmit}>
-        <InputText
-          id="comment"
-          value={comment}
-          required
-          disabled={false}
-          handleChange={this.handleChange}
-        />
-        <InputText
-          id="author"
-          value={author}
-          required
-          disabled={false}
-          handleChange={this.handleChange}
-        />
-        <div className="mt-4">
-          <button type="submit" className="btn btn-lg btn-primary btn-block">
-            Add Comment
-          </button>
-        </div>
-      </form>
+      <Card>
+        <CardContent>
+          <form className="my-4" onSubmit={this.handleSubmit}>
+            <InputText
+              id="comment"
+              value={comment}
+              required
+              disabled={false}
+              handleChange={this.handleChange}
+            />
+            <InputText
+              id="author"
+              value={author}
+              required
+              disabled={false}
+              handleChange={this.handleChange}
+            />
+            <CardActions>
+              <div className="mt-4">
+                <Button color="primary" variant="contained" type="submit">
+                  Add Comment
+                </Button>
+              </div>
+            </CardActions>
+          </form>
+        </CardContent>
+      </Card>
     );
   }
 }

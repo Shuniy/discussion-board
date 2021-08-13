@@ -9,6 +9,8 @@ import {
   editComment,
 } from "../actions";
 
+import { Card, CardContent } from "@material-ui/core";
+
 function CommentList(props) {
   const upVoteHandler = (id) => {
     props.upVoteToComment(id);
@@ -32,7 +34,12 @@ function CommentList(props) {
       editComment={editCommentHandler}
     />
   ));
-  return <ul className="list-group my-4">{renderComments}</ul>;
+  console.log(props.comments)
+  return (
+    <Card className="">
+      <CardContent>{renderComments}</CardContent>
+    </Card>
+  );
 }
 
 CommentList.propTypes = {

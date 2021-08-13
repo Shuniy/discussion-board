@@ -41,6 +41,7 @@ class PostDetailPage extends Component {
         <hr />
         <CommentForm addComment={this.addCommentHandler} />
         <hr />
+        {console.log(this.props)}
         {renderCommentList}
       </div>
     );

@@ -11,6 +11,10 @@ import VoteButtons from "./VoteButtons";
 import EditBadge from "./EditBadge";
 import { deletePost, upVoteToPost, downVoteToPost } from "../actions";
 import { dateFormat } from "../utils/helper";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
 
 class Post extends Component {
   deletePost = () => {
@@ -40,30 +44,37 @@ class Post extends Component {
     const badgeColor = voteScore >= 10 ? "badge-danger" : "badge-secondary";
 
     return (
-      <li className="list-group-item post">
-        <div className="d-flex justify-content-between align-items-start">
-          <div className="d-flex align-items-start">
-            <Link className="h2 mr-2" to={`/${category}/${id}`}>
-              {title}
-            </Link>
-            <EditBadge link={`/${category}/${id}/edit`} />
-          </div>
-          <CloseButton closeHandler={this.deletePost} />
-        </div>
-        <SmallLabel label={`post by ${author}`} />
-        <Badge label={category} />
-        <Badge label="Vote" badgeColor={badgeColor} voteCount={voteScore} />
-        <div className="my-3">
-          <TextTruncate line={1} truncateText="..." text={body} />
-        </div>
-        <div className="d-flex justify-content-between align-items-end">
-          <div>
-            <SmallLabel label={dateFormat(timestamp)} />
-            <CommentCount commentCount={commentCount} />
-          </div>
+      <Card>
+        <CardContent>
+          <li className="">
+            <div className="">
+              <div className="">
+                <Link className="" to={`/${category}/${id}`}>
+                  <Typography variant='h4'>{title}</Typography>
+                </Link>
+              </div>
+            </div>
+            <SmallLabel label={`post by ${author}`} />
+            <Badge label={category} />
+            <Badge label="Vote" badgeColor={badgeColor} voteCount={voteScore} />
+            <Typography variant='h6' color='textSecondary' className="">
+              <TextTruncate line={1} truncateText="..." text={body} />
+            </Typography>
+            <div className="">
+              <div>
+                <SmallLabel label={dateFormat(timestamp)} />
+                <CommentCount commentCount={commentCount} />
+              </div>
+            </div>
+          </li>
+        </CardContent>
+
+        <CardActions>
+          <EditBadge link={`/${category}/${id}/edit`} />
           <VoteButtons voteUp={this.voteUp} voteDown={this.voteDown} />
-        </div>
-      </li>
+          <CloseButton closeHandler={this.deletePost} />
+        </CardActions>
+      </Card>
     );
   }
 }

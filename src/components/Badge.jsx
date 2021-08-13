@@ -1,17 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 import _ from "lodash";
+import Typography from "@material-ui/core/Typography";
+
 
 function Badge({ label, badgeColor, disabled, voteCount }) {
   const voteBadge = voteCount !== undefined && (
-    <span className="text-warning"> {voteCount}</span>
+    <h4 className="text-warning"> {voteCount}</h4>
   );
 
   return (
-    <span className={`badge ${badgeColor} mr-2 px-1`} disabled={disabled}>
+    <Typography variant='h5'>
       {_.capitalize(label)}
-      {voteBadge}
-    </span>
+      {voteBadge ? voteBadge : ""}
+    </Typography>
   );
 }
 

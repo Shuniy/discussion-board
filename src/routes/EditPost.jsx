@@ -5,6 +5,7 @@ import { Redirect } from "react-router-dom";
 import PostForm from "../components/PostForm";
 import NotFound from "./NotFound";
 import { getPostByPostId, editPostByPostId } from "../actions";
+import Card from "@material-ui/core/Card";
 
 class EditPost extends Component {
   state = {
@@ -36,9 +37,9 @@ class EditPost extends Component {
     }
 
     return (
-      <div className="mt-5 container">
+      <Card className="">
         <PostForm submitPost={this.editPost} post={post} isNew={false} />
-      </div>
+      </Card>
     );
   }
 }

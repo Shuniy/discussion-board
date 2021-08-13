@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import InputText from "./InputText";
 import InputArea from "./InputArea";
 import RadioForm from "./RadioForm";
+import Button from "@material-ui/core/Button";
+import { Card, CardActions, CardContent } from "@material-ui/core";
 
 class PostForm extends Component {
   constructor(props) {
@@ -47,41 +49,50 @@ class PostForm extends Component {
     const { isNew } = this.props;
     const { category, title, body } = this.state;
     return (
-      <div>
-        <form onSubmit={this.onSubmit}>
-          <RadioForm
-            label="Category"
-            checkedVal={category}
-            handleChange={this.handleChange}
-            disabled={!isNew}
-          />
-          <InputText
-            id="title"
-            value={title}
-            handleChange={this.handleChange}
-            required
-          />
-          <InputArea
-            id="body"
-            value={body}
-            handleChange={this.handleChange}
-            label="content"
-            required
-          />
-          <InputText
-            id="author"
-            value={this.state.author}
-            handleChange={this.handleChange}
-            required={isNew}
-            disabled={!isNew}
-          />
-          <div className="mt-5">
-            <button type="submit" className="btn btn-lg btn-primary btn-block">
-              Submit
-            </button>
-          </div>
-        </form>
-      </div>
+      <Card>
+        <CardContent>
+          <form onSubmit={this.onSubmit}>
+            <RadioForm
+              label="Category"
+              checkedVal={category}
+              handleChange={this.handleChange}
+              disabled={!isNew}
+            />
+            <InputText
+              id="title"
+              value={title}
+              handleChange={this.handleChange}
+              required
+            />
+            <InputArea
+              id="body"
+              value={body}
+              handleChange={this.handleChange}
+              label="content"
+              required
+            />
+            <InputText
+              id="author"
+              value={this.state.author}
+              handleChange={this.handleChange}
+              required={isNew}
+              disabled={!isNew}
+            />
+            <CardActions>
+              <div className="mt-5">
+                <Button
+                  type="submit"
+                  className=""
+                  variant="contained"
+                  color="primary"
+                >
+                  Submit
+                </Button>
+              </div>
+            </CardActions>
+          </form>
+        </CardContent>
+      </Card>
     );
   }
 }

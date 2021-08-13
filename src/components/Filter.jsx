@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import _ from "lodash";
 import { getAllCategories, getPostsByCategory } from "../actions";
+import Button from "@material-ui/core/Button";
 
 const btnWidth = { width: "100px" };
 const defaultStyle = "btn btn-outline-secondary mr-2";
@@ -54,7 +55,7 @@ class Filter extends Component {
         style={btnWidth}
         onClick={() => this.clickHandler(filter)}
       >
-        {_.capitalize(filter)}
+        <Button variant="outlined" color="primary"> {_.capitalize(filter)}</Button>
       </Link>
     ));
 
@@ -66,7 +67,9 @@ class Filter extends Component {
           style={btnWidth}
           onClick={() => this.clickHandler("all")}
         >
-          All
+          <Button variant="outlined" color="primary">
+            All
+          </Button>
         </Link>
         {renderLinks}
       </div>

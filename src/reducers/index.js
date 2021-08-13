@@ -8,7 +8,7 @@ import postReducer from "./post";
 const combinedReducers = combineReducers({
   categories: categoriesReducer,
   post: postReducer,
-  comment: commentsReducer,
+  comments: commentsReducer,
   posts: postsReducer,
   sortBy: sortByReducer,
 });

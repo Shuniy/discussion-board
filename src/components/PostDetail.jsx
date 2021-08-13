@@ -9,6 +9,7 @@ import CommentCount from "./CommentCount";
 import VoteButtons from "./VoteButtons";
 import { deletePost, upVoteToPost, downVoteToPost } from "../actions";
 import { dateFormat } from "../utils/helper";
+import { Card, CardActions, CardContent, Typography } from "@material-ui/core";
 
 class PostDetail extends Component {
   state = {
@@ -48,28 +49,32 @@ class PostDetail extends Component {
     const badgeColor = voteScore >= 10 ? "badge-danger" : "badge-secondary";
 
     return (
-      <div className="my-4 post">
-        <div className="d-flex justify-content-between align-items-start">
-          <div className="d-flex align-items-start">
-            <h4 className="mr-2">{title}</h4>
-            <EditBadge link={`/${category}/${id}/edit`} />
+      <Card>
+        <CardContent>
+          <div className="">
+              <Typography variant="h3" className="">
+                {title}
+              </Typography>
           </div>
-          <CloseButton closeHandler={this.deletePost} />
-        </div>
-        <small>Post By {author} / </small>
-        <small>{dateFormat(timestamp)}</small>
-        <div>
-          <Badge label={category} />
-          <Badge label="Vote" badgeColor={badgeColor} voteCount={voteScore} />
-        </div>
-        <div className="my-5">
-          <p>{body}</p>
-        </div>
-        <div className="d-flex justify-content-between align-items-end">
-          <CommentCount commentCount={commentCount} />
+          <Typography>Post By {author}</Typography>
+          <Typography>{dateFormat(timestamp)}</Typography>
+          <div>
+            <Badge label={category} />
+            <Badge label="Vote" badgeColor={badgeColor} voteCount={voteScore} />
+          </div>
+          <div className="">
+            <Typography>{body}</Typography>
+          </div>
+          <div className="">
+            <CommentCount commentCount={commentCount} />
+          </div>
+        </CardContent>
+        <CardActions>
+          <EditBadge link={`/${category}/${id}/edit`} />
           <VoteButtons voteUp={this.voteUp} voteDown={this.voteDown} />
-        </div>
-      </div>
+          <CloseButton closeHandler={this.deletePost} />
+        </CardActions>
+      </Card>
     );
   }
 }
