@@ -1,20 +1,28 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import RadioButton from './RadioButton';
-import { getAllCategories } from '../actions';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import RadioButton from "./RadioButton";
+import { getAllCategories } from "../actions";
 
 class RadioForm extends Component {
   componentDidMount() {
     this.props.getAllCategories();
   }
   render() {
-    const { label, handleChange, checkedVal, categories, disabled } = this.props;
+    const { label, handleChange, checkedVal, categories, disabled } =
+      this.props;
 
     const renderRadioBtn = disabled ? (
-      <RadioButton key={checkedVal} evtName="category" val={checkedVal} handleChange={handleChange} checked disabled />
+      <RadioButton
+        key={checkedVal}
+        evtName="category"
+        val={checkedVal}
+        handleChange={handleChange}
+        checked
+        disabled
+      />
     ) : (
-      categories.map(category => (
+      categories.map((category) => (
         <RadioButton
           key={category}
           evtName="category"
@@ -29,9 +37,7 @@ class RadioForm extends Component {
     return (
       <div>
         <div>{label}</div>
-        <div data-toggle="buttons">
-          {renderRadioBtn}
-        </div>
+        <div data-toggle="buttons">{renderRadioBtn}</div>
       </div>
     );
   }

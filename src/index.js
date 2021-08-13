@@ -8,10 +8,10 @@ import { compose, applyMiddleware, createStore } from "redux";
 import thunk from "redux-thunk";
 import { logger } from "redux-logger";
 import rootReducer from "./reducers";
-import rootSaga from './sagas/index';
+import rootSaga from "./sagas/index";
 import createSagaMiddleware from "redux-saga";
 
-const sagaMiddleware = createSagaMiddleware()
+const sagaMiddleware = createSagaMiddleware();
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -27,7 +27,7 @@ sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <BrowserRouter>
-    <Provider store = {store} >
+    <Provider store={store}>
       <React.StrictMode>
         <App />
       </React.StrictMode>

@@ -1,9 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import _ from 'lodash';
+import React from "react";
+import PropTypes from "prop-types";
+import _ from "lodash";
 
-function Badge({ label, badgeColor, disabled, voteCount }){
-  const voteBadge = voteCount !== undefined && <span className="text-warning"> {voteCount}</span>;
+function Badge({ label, badgeColor, disabled, voteCount }) {
+  const voteBadge = voteCount !== undefined && (
+    <span className="text-warning"> {voteCount}</span>
+  );
 
   return (
     <span className={`badge ${badgeColor} mr-2 px-1`} disabled={disabled}>
@@ -11,11 +13,11 @@ function Badge({ label, badgeColor, disabled, voteCount }){
       {voteBadge}
     </span>
   );
-};
+}
 
 Badge.defaultProps = {
-  label: '',
-  badgeColor: 'badge-primary',
+  label: "",
+  badgeColor: "badge-primary",
   disabled: true,
   voteCount: undefined,
 };

@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import EditBadge from './EditBadge';
-import Badge from './Badge';
-import CloseButton from './CloseButton';
-import CommentCount from './CommentCount';
-import VoteButtons from './VoteButtons';
-import { deletePost, upVoteToPost, downVoteToPost } from '../actions';
-import { dateFormat } from '../utils/helper';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import EditBadge from "./EditBadge";
+import Badge from "./Badge";
+import CloseButton from "./CloseButton";
+import CommentCount from "./CommentCount";
+import VoteButtons from "./VoteButtons";
+import { deletePost, upVoteToPost, downVoteToPost } from "../actions";
+import { dateFormat } from "../utils/helper";
 
 class PostDetail extends Component {
   state = {
@@ -34,9 +34,18 @@ class PostDetail extends Component {
       return <Redirect to="/" />;
     }
 
-    const { id, title, category, body, author, timestamp, voteScore, commentCount } = this.props.post;
+    const {
+      id,
+      title,
+      category,
+      body,
+      author,
+      timestamp,
+      voteScore,
+      commentCount,
+    } = this.props.post;
 
-    const badgeColor = voteScore >= 10 ? 'badge-danger' : 'badge-secondary';
+    const badgeColor = voteScore >= 10 ? "badge-danger" : "badge-secondary";
 
     return (
       <div className="my-4 post">
@@ -76,4 +85,8 @@ const mapStateToProps = ({ post }) => ({
   post,
 });
 
-export default connect(mapStateToProps, { deletePost, upVoteToPost, downVoteToPost })(PostDetail);
+export default connect(mapStateToProps, {
+  deletePost,
+  upVoteToPost,
+  downVoteToPost,
+})(PostDetail);

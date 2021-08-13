@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import Badge from './Badge';
-import CloseButton from './CloseButton';
-import CommentEditForm from './CommentEditForm';
-import VoteButtons from './VoteButtons';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import Badge from "./Badge";
+import CloseButton from "./CloseButton";
+import CommentEditForm from "./CommentEditForm";
+import VoteButtons from "./VoteButtons";
 import { dateFormatGlobal } from "../utils/helper";
 
 class Comment extends Component {
@@ -21,7 +21,7 @@ class Comment extends Component {
     this.props.deleteComment(this.props.comment.id);
   };
 
-  editComment = body => {
+  editComment = (body) => {
     this.props.editComment({
       id: this.props.comment.id,
       body,
@@ -42,21 +42,28 @@ class Comment extends Component {
       <div className="d-flex justify-content-between align-items-start">
         <div className="d-flex align-items-start">
           {body}&nbsp;
-          <button type="button" className="badge badge-success" onClick={this.editMode}>
+          <button
+            type="button"
+            className="badge badge-success"
+            onClick={this.editMode}
+          >
             Edit <i className="fa fa-pencil-square-o" aria-hidden="true" />
           </button>
         </div>
-        <CloseButton closeStyle="text-muted" closeHandler={this.deleteComment} />
+        <CloseButton
+          closeStyle="text-muted"
+          closeHandler={this.deleteComment}
+        />
       </div>
     );
 
-    const badgeColor = voteScore >= 10 ? 'badge-danger' : 'badge-secondary';
+    const badgeColor = voteScore >= 10 ? "badge-danger" : "badge-secondary";
     return (
       <li className="list-group-item list-group-item-warning">
         {renderCommentBody}
         <div>
           <small className="text-muted">commented by {author}</small>
-          {' / '}
+          {" / "}
           <small className="text-muted">{dateFormatGlobal(timestamp)}</small>
         </div>
         <div className="d-flex justify-content-between align-items-end">

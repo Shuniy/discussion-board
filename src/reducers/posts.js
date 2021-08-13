@@ -6,7 +6,7 @@ import {
   ADD_POST_SUCCESS,
 } from "../actions";
 
-export default function postsReducer(state = {}, action){
+export default function postsReducer(state = {}, action) {
   switch (action.type) {
     case GET_POSTS_BY_CATEGORY_SUCCESS: {
       const { category, posts } = action;
@@ -18,17 +18,16 @@ export default function postsReducer(state = {}, action){
 
       return { ...state, [category]: rest };
     }
-    case UPVOTE_TO_POST_SUCCESS:
-      {
-        const { id, category } = action.post;
-        if (state[category] && state[category].length > 0) {
-          const newPosts = state[category].map((post) =>
-            post.id === id ? action.post : post
-          );
-          return { ...state, [category]: newPosts };
-        }
-        return state;
+    case UPVOTE_TO_POST_SUCCESS: {
+      const { id, category } = action.post;
+      if (state[category] && state[category].length > 0) {
+        const newPosts = state[category].map((post) =>
+          post.id === id ? action.post : post
+        );
+        return { ...state, [category]: newPosts };
       }
+      return state;
+    }
     case DOWNVOTE_TO_POST_SUCCESS: {
       const { id, category } = action.post;
       if (state[category] && state[category].length > 0) {
@@ -47,4 +46,4 @@ export default function postsReducer(state = {}, action){
     default:
       return state;
   }
-};
+}

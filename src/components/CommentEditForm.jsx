@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class CommentEditForm extends Component {
   state = {
     body: this.props.defaultVal,
   };
 
-  changeHandler = e => {
+  changeHandler = (e) => {
     this.setState({ body: e.target.value });
   };
 
-  editComment = e => {
+  editComment = (e) => {
     e.preventDefault();
     this.props.editComment(this.state.body);
   };
@@ -19,7 +19,12 @@ class CommentEditForm extends Component {
     return (
       <form onSubmit={this.editComment}>
         <div className="input-group">
-          <input type="text" className="form-control" value={this.state.body} onChange={this.changeHandler} />
+          <input
+            type="text"
+            className="form-control"
+            value={this.state.body}
+            onChange={this.changeHandler}
+          />
           <div className="input-group-append">
             <button className="btn btn-outline-secondary" type="submit">
               Submit

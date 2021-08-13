@@ -14,7 +14,7 @@ class NewPost extends Component {
     this.props.addPost(post);
     this.setState({ redirect: true });
   };
-  
+
   render() {
     if (this.state.redirect) {
       return <Redirect to="/" />;

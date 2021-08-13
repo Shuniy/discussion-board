@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import _ from 'lodash';
-import { getAllCategories, getPostsByCategory } from '../actions';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import _ from "lodash";
+import { getAllCategories, getPostsByCategory } from "../actions";
 
-const btnWidth = { width: '100px' };
-const defaultStyle = 'btn btn-outline-secondary mr-2';
-const activeStyle = 'btn btn-danger mr-2';
+const btnWidth = { width: "100px" };
+const defaultStyle = "btn btn-outline-secondary mr-2";
+const activeStyle = "btn btn-danger mr-2";
 
 class Filter extends Component {
   state = {
@@ -18,7 +18,7 @@ class Filter extends Component {
     this.props.getAllCategories();
     const { filters } = this.props;
     if (filters && filters.length > 0) {
-      filters.forEach(filter => {
+      filters.forEach((filter) => {
         this.props.getPostsByCategory(filter);
       });
     }
@@ -28,15 +28,16 @@ class Filter extends Component {
     const nextFilters = nextProps.filters;
     const thisFilters = this.props.filters;
     if (thisFilters.length === 0 && nextFilters.length !== 0) {
-      nextFilters.forEach(filter => {
+      nextFilters.forEach((filter) => {
         this.props.getPostsByCategory(filter);
       });
     }
   }
 
-  styleSelector = filter => (this.state.active === filter ? activeStyle : defaultStyle);
+  styleSelector = (filter) =>
+    this.state.active === filter ? activeStyle : defaultStyle;
 
-  clickHandler = filter => {
+  clickHandler = (filter) => {
     this.setState({
       active: filter,
     });
@@ -45,7 +46,7 @@ class Filter extends Component {
   render() {
     const { filters } = this.props;
 
-    const renderLinks = filters.map(filter => (
+    const renderLinks = filters.map((filter) => (
       <Link
         className={this.styleSelector(filter)}
         to={`/${filter}`}
@@ -59,7 +60,12 @@ class Filter extends Component {
 
     return (
       <div className="">
-        <Link className={this.styleSelector('all')} to="/" style={btnWidth} onClick={() => this.clickHandler('all')}>
+        <Link
+          className={this.styleSelector("all")}
+          to="/"
+          style={btnWidth}
+          onClick={() => this.clickHandler("all")}
+        >
           All
         </Link>
         {renderLinks}
@@ -69,7 +75,7 @@ class Filter extends Component {
 }
 
 Filter.defaultProps = {
-  filter: 'all',
+  filter: "all",
 };
 
 Filter.propTypes = {
@@ -83,4 +89,7 @@ const mapStateToProps = ({ categories }) => ({
   filters: categories,
 });
 
-export default connect(mapStateToProps, { getAllCategories, getPostsByCategory })(Filter);
+export default connect(mapStateToProps, {
+  getAllCategories,
+  getPostsByCategory,
+})(Filter);

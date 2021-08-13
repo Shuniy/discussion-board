@@ -1,11 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-function SmallLabel({ label }) { (
-  <div>
-    <small className="text-muted">{label}</small>
-  </div>
-);}
+function SmallLabel({ label }) {
+  return (
+    <div>
+      <h3 className="text-muted">{label}</h3>
+    </div>
+  );
+}
 
 SmallLabel.propTypes = {
   label: PropTypes.string.isRequired,

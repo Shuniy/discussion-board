@@ -1,12 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-function NewPostButton() {(
-  <div className="mt-4 d-flex flex-row-reverse">
-    <Link className="btn btn-success" to="/new">
-      New Post <i className="fa fa-pencil-square-o" aria-hidden="true" />
-    </Link>
-  </div>
-);}
+function NewPostButton() {
+  return (
+    <div className="mt-4 d-flex flex-row-reverse">
+      <Link className="btn btn-success" to="/new">
+        New Post <i className="fa fa-pencil-square-o" aria-hidden="true" />
+      </Link>
+    </div>
+  );
+}
 
 export default NewPostButton;

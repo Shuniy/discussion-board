@@ -6,7 +6,7 @@ import { setSortBy } from "../actions";
 
 class AllPosts extends Component {
   changeSortBy = (e) => this.props.setSortBy(e.target.value);
-  
+
   render() {
     const { posts, categories, sortBy } = this.props;
     const allPosts = [];
@@ -40,4 +40,4 @@ const mapStateToProps = ({ posts, categories, sortBy }) => ({
   sortBy,
 });
 
-export default connect(mapStateToProps, {setSortBy})(AllPosts);
+export default connect(mapStateToProps, { setSortBy })(AllPosts);

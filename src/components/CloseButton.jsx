@@ -1,8 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 import CloseIcon from "@material-ui/icons/Close";
 import Button from "@material-ui/core/Button";
-
 
 function CloseButton({ closeHandler }) {
   return (

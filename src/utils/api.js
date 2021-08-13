@@ -1,5 +1,5 @@
 import axios from "axios";
-import {v4 as uuidv4} from "uuid";
+import { v4 as uuidv4 } from "uuid";
 
 const headers = {
   Accept: "application/json",
@@ -162,4 +162,3 @@ export async function editComment({ id, body }) {
 
   return response.data;
 }
-

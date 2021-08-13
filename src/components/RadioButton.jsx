@@ -1,14 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import _ from 'lodash';
+import React from "react";
+import PropTypes from "prop-types";
+import _ from "lodash";
 import Radio from "@material-ui/core/Radio";
 
-function RadioButton({ evtName, val, handleChange, checked, disabled }){
+function RadioButton({ evtName, val, handleChange, checked, disabled }) {
   return (
-    <label
-      htmlFor={val}
-      style={{ width: "100px" }}
-    >
+    <label htmlFor={val} style={{ width: "100px" }}>
       <Radio
         id={val}
         value={val}

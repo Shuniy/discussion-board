@@ -1,22 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import _ from 'lodash';
+import React from "react";
+import PropTypes from "prop-types";
+import _ from "lodash";
 
-function InputText ({ id, value, handleChange, required, disabled }) {
-  return <div className="form-group">
-    <label htmlFor={id}>{_.capitalize(id)}</label>
-    <input
-      type="text"
-      className="form-control"
-      id={id}
-      value={value}
-      required={required}
-      disabled={disabled}
-      onChange={e => handleChange(e, id)}
-      placeholder={`Enter ${_.capitalize(id)}`}
-    />
-  </div>
-};
+function InputText({ id, value, handleChange, required, disabled }) {
+  return (
+    <div className="form-group">
+      <label htmlFor={id}>{_.capitalize(id)}</label>
+      <input
+        type="text"
+        className="form-control"
+        id={id}
+        value={value}
+        required={required}
+        disabled={disabled}
+        onChange={(e) => handleChange(e, id)}
+        placeholder={`Enter ${_.capitalize(id)}`}
+      />
+    </div>
+  );
+}
 
 InputText.defaultProps = {
   required: true,

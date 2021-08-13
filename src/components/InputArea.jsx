@@ -1,21 +1,23 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import _ from 'lodash';
+import React from "react";
+import PropTypes from "prop-types";
+import _ from "lodash";
 
-function InputArea({ id, value, handleChange, required, label, disabled }){
-  return <div className="form-group">
-    <label htmlFor={id}>{_.capitalize(label)}</label>
-    <textarea
-      type="text"
-      className="form-control"
-      id={id}
-      value={value}
-      required={required}
-      disabled={disabled}
-      onChange={e => handleChange(e, id)}
-      placeholder={`Enter ${_.capitalize(label)}`}
-    />
-  </div>
+function InputArea({ id, value, handleChange, required, label, disabled }) {
+  return (
+    <div className="form-group">
+      <label htmlFor={id}>{_.capitalize(label)}</label>
+      <textarea
+        type="text"
+        className="form-control"
+        id={id}
+        value={value}
+        required={required}
+        disabled={disabled}
+        onChange={(e) => handleChange(e, id)}
+        placeholder={`Enter ${_.capitalize(label)}`}
+      />
+    </div>
+  );
 }
 
 InputArea.defaultProps = {

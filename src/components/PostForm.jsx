@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import InputText from './InputText';
-import InputArea from './InputArea';
-import RadioForm from './RadioForm';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import InputText from "./InputText";
+import InputArea from "./InputArea";
+import RadioForm from "./RadioForm";
 
 class PostForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      category: 'react',
-      title: '',
-      body: '',
-      author: '',
+      category: "react",
+      title: "",
+      body: "",
+      author: "",
     };
   }
 
@@ -25,7 +25,7 @@ class PostForm extends Component {
     });
   }
 
-  onSubmit = e => {
+  onSubmit = (e) => {
     e.preventDefault();
     const { category, title, author, body } = this.state;
     this.props.submitPost({
@@ -49,9 +49,25 @@ class PostForm extends Component {
     return (
       <div>
         <form onSubmit={this.onSubmit}>
-          <RadioForm label="Category" checkedVal={category} handleChange={this.handleChange} disabled={!isNew} />
-          <InputText id="title" value={title} handleChange={this.handleChange} required />
-          <InputArea id="body" value={body} handleChange={this.handleChange} label="content" required />
+          <RadioForm
+            label="Category"
+            checkedVal={category}
+            handleChange={this.handleChange}
+            disabled={!isNew}
+          />
+          <InputText
+            id="title"
+            value={title}
+            handleChange={this.handleChange}
+            required
+          />
+          <InputArea
+            id="body"
+            value={body}
+            handleChange={this.handleChange}
+            label="content"
+            required
+          />
           <InputText
             id="author"
             value={this.state.author}
@@ -72,11 +88,11 @@ class PostForm extends Component {
 
 PostForm.defaultProps = {
   post: {
-    id: '',
-    category: 'react',
-    title: '',
-    body: '',
-    author: '',
+    id: "",
+    category: "react",
+    title: "",
+    body: "",
+    author: "",
   },
 };
 

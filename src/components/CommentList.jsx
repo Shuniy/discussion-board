@@ -1,23 +1,28 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import Comment from './Comment';
-import { upVoteToComment, downVoteToComment, deleteComment, editComment } from '../actions';
+import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import Comment from "./Comment";
+import {
+  upVoteToComment,
+  downVoteToComment,
+  deleteComment,
+  editComment,
+} from "../actions";
 
-function CommentList(props){
-  const upVoteHandler = id => {
+function CommentList(props) {
+  const upVoteHandler = (id) => {
     props.upVoteToComment(id);
   };
-  const downVoteHandler = id => {
+  const downVoteHandler = (id) => {
     props.downVoteToComment(id);
   };
-  const deleteCommentHandler = id => {
+  const deleteCommentHandler = (id) => {
     props.deleteComment(id);
   };
   const editCommentHandler = ({ id, body }) => {
     props.editComment({ id, body });
   };
-  const renderComments = props.comments.map(comment => (
+  const renderComments = props.comments.map((comment) => (
     <Comment
       key={comment.id}
       comment={comment}
@@ -28,7 +33,7 @@ function CommentList(props){
     />
   ));
   return <ul className="list-group my-4">{renderComments}</ul>;
-};
+}
 
 CommentList.propTypes = {
   upVoteToComment: PropTypes.func.isRequired,
@@ -38,4 +43,9 @@ CommentList.propTypes = {
   comments: PropTypes.array.isRequired,
 };
 
-export default connect(null, { upVoteToComment, downVoteToComment, deleteComment, editComment })(CommentList);
+export default connect(null, {
+  upVoteToComment,
+  downVoteToComment,
+  deleteComment,
+  editComment,
+})(CommentList);

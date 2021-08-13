@@ -3,10 +3,12 @@ import PropTypes from "prop-types";
 import VoteButton from "./VoteButton";
 
 function VoteButtons({ voteUp, voteDown }) {
-  <div className="">
-    <VoteButton clickHandler={voteUp} type="add" />
-    <VoteButton clickHandler={voteDown} type="sub" />
-  </div>;
+  return (
+    <div className="">
+      <VoteButton clickHandler={voteUp} type="add" />
+      <VoteButton clickHandler={voteDown} type="sub" />
+    </div>
+  );
 }
 
 VoteButtons.propTypes = {

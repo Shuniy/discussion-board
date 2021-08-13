@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import InputText from './InputText';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import InputText from "./InputText";
 
 const defaultState = {
-  comment: '',
-  author: '',
+  comment: "",
+  author: "",
 };
 
 class CommentForm extends Component {
@@ -16,7 +16,7 @@ class CommentForm extends Component {
     });
   };
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
     const comment = {
       body: this.state.comment,
@@ -30,8 +30,20 @@ class CommentForm extends Component {
     const { author, comment } = this.state;
     return (
       <form className="my-4" onSubmit={this.handleSubmit}>
-        <InputText id="comment" value={comment} required disabled={false} handleChange={this.handleChange} />
-        <InputText id="author" value={author} required disabled={false} handleChange={this.handleChange} />
+        <InputText
+          id="comment"
+          value={comment}
+          required
+          disabled={false}
+          handleChange={this.handleChange}
+        />
+        <InputText
+          id="author"
+          value={author}
+          required
+          disabled={false}
+          handleChange={this.handleChange}
+        />
         <div className="mt-4">
           <button type="submit" className="btn btn-lg btn-primary btn-block">
             Add Comment
