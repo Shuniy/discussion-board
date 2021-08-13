@@ -20,7 +20,7 @@ export async function getPostsByCategory(category) {
 
 // upvote a post
 export async function upVoteToPost(id) {
-  const response = await axios.getPostsByCategory(
+  const response = await axios.post(
     `/posts/${id}`,
     { option: "upVote" },
     { headers }

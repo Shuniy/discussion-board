@@ -1,40 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Radio from "@material-ui/core/Radio";
 
-const RadioForSort = ({ sortBy, changeHandler }) => (
-  <div className="d-flex align-items-center">
-    <small className="mr-3">Sort By</small>
-    <div className="form-check form-check-inline">
-      <input
-        className="form-check-input"
-        type="radio"
-        name="inlineRadioOptions"
-        id="radioDate"
-        value="date"
-        onChange={changeHandler}
-        checked={sortBy === 'date'}
-      />
-      <label className="form-check-label" htmlFor="radioDate">
-        <small>Date</small>
+function RadioForSort({ sortBy, changeHandler }){(
+  <div>
+    <h3>Sort By</h3>
+    <div>
+      <label htmlFor="radioDate">
+        <Radio
+          name="inlineRadioOptions"
+          id="radioDate"
+          value="date"
+          onChange={changeHandler}
+          checked={sortBy === "date"}
+        />
+        <h4>Date</h4>
       </label>
     </div>
-    <div className="form-check form-check-inline">
-      <input
-        className="form-check-input"
-        type="radio"
-        name="inlineRadioOptions"
-        id="radioScore"
-        value="score"
-        onChange={changeHandler}
-        checked={sortBy === 'score'}
-      />
-      <label className="form-check-label" htmlFor="radioScore">
-        <small>Score</small>
+    <div>
+      <label htmlFor="radioScore">
+        <Radio
+          name="inlineRadioOptions"
+          id="radioScore"
+          value="score"
+          onChange={changeHandler}
+          checked={sortBy === "score"}
+        />
+        <h4>Score</h4>
       </label>
     </div>
   </div>
 );
-
+}
 RadioForSort.propTypes = {
   sortBy: PropTypes.oneOf(['date', 'score']).isRequired,
   changeHandler: PropTypes.func.isRequired,

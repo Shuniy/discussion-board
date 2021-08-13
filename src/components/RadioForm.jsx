@@ -29,7 +29,7 @@ class RadioForm extends Component {
     return (
       <div>
         <div>{label}</div>
-        <div className="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+        <div data-toggle="buttons">
           {renderRadioBtn}
         </div>
       </div>

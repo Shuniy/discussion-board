@@ -1,23 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
+import Radio from "@material-ui/core/Radio";
 
-const selClass = checked => `btn ${checked ? 'btn-danger active' : 'btn-secondary'}`;
-
-const RadioButton = ({ evtName, val, handleChange, checked, disabled }) => (
-  <label htmlFor={val} style={{ width: '100px' }} className={selClass(checked)}>
-    <input
-      type="radio"
-      id={val}
-      autoComplete="off"
-      value={val}
-      onChange={e => handleChange(e, evtName)}
-      checked={checked}
-      disabled={disabled}
-    />
-    {_.capitalize(val)}
-  </label>
-);
+function RadioButton({ evtName, val, handleChange, checked, disabled }){
+  return (
+    <label
+      htmlFor={val}
+      style={{ width: "100px" }}
+    >
+      <Radio
+        id={val}
+        value={val}
+        onChange={(e) => handleChange(e, evtName)}
+        checked={checked}
+        disabled={disabled}
+      />
+      <h4>{_.capitalize(val)}</h4>
+    </label>
+  );
+}
 
 RadioButton.propTypes = {
   evtName: PropTypes.string.isRequired,

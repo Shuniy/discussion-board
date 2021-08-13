@@ -1,14 +1,15 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { setSortBy } from "../actions";
+import { connect } from "react-redux";
 import PostsContainer from "../components/PostsContainer";
+import { setSortBy } from "../actions";
 
 class AllPosts extends Component {
+  changeSortBy = (e) => this.props.setSortBy(e.target.value);
+  
   render() {
-    const { posts, categories, sortBy, changeSortBy } = this.props;
+    const { posts, categories, sortBy } = this.props;
     const allPosts = [];
-
     if (categories.length > 0 && posts) {
       categories.forEach((category) => {
         if (posts[category] && posts[category].length > 0) {
@@ -16,19 +17,12 @@ class AllPosts extends Component {
         }
       });
     }
-
     return (
-      <div className="postContainer">
-        {allPosts.length > 0 ? (
-          <PostsContainer
-            sortBy={sortBy}
-            posts={allPosts}
-            changeSortBy={changeSortBy}
-          />
-        ) : (
-          <p>No Posts Found!</p>
-        )}
-      </div>
+      <PostsContainer
+        sortBy={sortBy}
+        posts={allPosts}
+        changeSortBy={this.changeSortBy}
+      />
     );
   }
 }
@@ -40,17 +34,10 @@ AllPosts.propTypes = {
   setSortBy: PropTypes.func.isRequired,
 };
 
-function mapStateToProps({ posts, categories, sortBy }) {
-  return {
-    posts,
-    categories,
-    sortBy,
-  };
-}
-
-const mapDispatchToProps = (dispatch) => ({
-  changeSortBy: (event) => dispatch(setSortBy(event.target.value)),
-
+const mapStateToProps = ({ posts, categories, sortBy }) => ({
+  posts,
+  categories,
+  sortBy,
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AllPosts);
+export default connect(mapStateToProps, {setSortBy})(AllPosts);

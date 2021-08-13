@@ -6,7 +6,7 @@ import RadioForSort from './RadioForSort';
 import Posts from './Posts';
 import { getSortedPosts } from '../utils/helper';
 
-const PostsContainer = ({ filter, sortBy, posts, changeSortBy }) => (
+function PostsContainer({ filter, sortBy, posts, changeSortBy }){ (
   <div className="mt-5 container">
     <Filter filter={filter} />
     <NewPostButton />
@@ -15,7 +15,7 @@ const PostsContainer = ({ filter, sortBy, posts, changeSortBy }) => (
       <Posts posts={getSortedPosts(posts, sortBy)} />
     </div>
   </div>
-);
+);}
 
 PostsContainer.defaultProps = {
   filter: undefined,

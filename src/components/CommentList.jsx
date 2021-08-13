@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Comment from './Comment';
 import { upVoteToComment, downVoteToComment, deleteComment, editComment } from '../actions';
 
-const CommentList = props => {
+function CommentList(props){
   const upVoteHandler = id => {
     props.upVoteToComment(id);
   };

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 
-const Badge = ({ label, badgeColor, disabled, voteCount }) => {
+function Badge({ label, badgeColor, disabled, voteCount }){
   const voteBadge = voteCount !== undefined && <span className="text-warning"> {voteCount}</span>;
 
   return (

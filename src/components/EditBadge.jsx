@@ -1,12 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import React from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
-const EditBadge = ({ link }) => (
-  <Link className="badge badge-success" to={link}>
-    Edit <i className="fa fa-pencil-square-o" aria-hidden="true" />
-  </Link>
-);
+function EditBadge({ link }) {
+  return (
+    <Link className="" to={link}>
+      <Button variant="contained" color="secondary">
+        Edit
+      </Button>
+    </Link>
+  );
+}
 
 EditBadge.propTypes = {
   link: PropTypes.string.isRequired,

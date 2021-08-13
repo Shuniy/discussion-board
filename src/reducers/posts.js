@@ -19,6 +19,16 @@ export default function postsReducer(state = {}, action){
       return { ...state, [category]: rest };
     }
     case UPVOTE_TO_POST_SUCCESS:
+      {
+        const { id, category } = action.post;
+        if (state[category] && state[category].length > 0) {
+          const newPosts = state[category].map((post) =>
+            post.id === id ? action.post : post
+          );
+          return { ...state, [category]: newPosts };
+        }
+        return state;
+      }
     case DOWNVOTE_TO_POST_SUCCESS: {
       const { id, category } = action.post;
       if (state[category] && state[category].length > 0) {

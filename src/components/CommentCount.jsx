@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const CommentCount = ({ commentCount }) => {
+function CommentCount({ commentCount }){
   const appendS = commentCount !== 1 && 's';
   const countColor = commentCount > 0 ? 'text-danger' : 'text-muted';
   return (

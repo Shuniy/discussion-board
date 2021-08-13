@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 
-const InputText = ({ id, value, handleChange, required, disabled }) => (
-  <div className="form-group">
+function InputText ({ id, value, handleChange, required, disabled }) {
+  return <div className="form-group">
     <label htmlFor={id}>{_.capitalize(id)}</label>
     <input
       type="text"
@@ -16,7 +16,7 @@ const InputText = ({ id, value, handleChange, required, disabled }) => (
       placeholder={`Enter ${_.capitalize(id)}`}
     />
   </div>
-);
+};
 
 InputText.defaultProps = {
   required: true,

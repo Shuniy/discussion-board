@@ -12,11 +12,16 @@ class EditPost extends Component {
   };
 
   componentDidMount() {
-    this.props.getPostById(this.props.match.params.postId);
+    this.props.getPostByPostId(this.props.match.params.postId);
   }
 
   editPost = ({ id, title, body }) => {
-    this.props.editPost({ id, title, body });
+    this.props.editPostByPostId({
+      id,
+      title,
+      body,
+    });
+    this.setState({ redirect: true });
   };
 
   render() {
@@ -31,7 +36,7 @@ class EditPost extends Component {
     }
 
     return (
-      <div className="editPostContainer">
+      <div className="mt-5 container">
         <PostForm submitPost={this.editPost} post={post} isNew={false} />
       </div>
     );
@@ -53,12 +58,6 @@ const mapStateToProps = ({ post }) => ({
   post,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  getPostById: (data) => dispatch(getPostByPostId(data)),
-  editPost: ({ id, title, body }) => {
-    editPostByPostId({ id, title, body });
-    this.setState({ redirect: true });
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(EditPost);
+export default connect(mapStateToProps, { getPostByPostId, editPostByPostId })(
+  EditPost
+);

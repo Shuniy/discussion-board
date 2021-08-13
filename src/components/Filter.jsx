@@ -58,7 +58,7 @@ class Filter extends Component {
     ));
 
     return (
-      <div className="d-flex justify-content-start align-items-center">
+      <div className="">
         <Link className={this.styleSelector('all')} to="/" style={btnWidth} onClick={() => this.clickHandler('all')}>
           All
         </Link>

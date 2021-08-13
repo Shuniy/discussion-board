@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import CloseIcon from "@material-ui/icons/Close";
+import Button from "@material-ui/core/Button";
+
 
 function CloseButton({ closeHandler }) {
   return (
-    <button type="button" className="close ml-2" aria-label="Close" onClick={closeHandler}>
-      <span aria-hidden="true">&times;</span>
-    </button>
+    <Button variant="contained" color="secondary" onClick={closeHandler}>
+      <CloseIcon />
+    </Button>
   );
 }
 
