@@ -5,10 +5,10 @@ import { connect } from "react-redux";
 import _ from "lodash";
 import { getAllCategories, getPostsByCategory } from "../actions";
 import Button from "@material-ui/core/Button";
+import NewPostButton from "./NewPostButton";
 
-const btnWidth = { width: "100px" };
-const defaultStyle = "btn btn-outline-secondary mr-2";
-const activeStyle = "btn btn-danger mr-2";
+const defaultStyle = "outlined";
+const activeStyle = "contained";
 
 class Filter extends Component {
   state = {
@@ -49,29 +49,32 @@ class Filter extends Component {
 
     const renderLinks = filters.map((filter) => (
       <Link
-        className={this.styleSelector(filter)}
         to={`/${filter}`}
         key={filter}
-        style={btnWidth}
         onClick={() => this.clickHandler(filter)}
       >
-        <Button variant="outlined" color="primary"> {_.capitalize(filter)}</Button>
+        <Button
+          className="categoryFilter"
+          variant={this.styleSelector(filter)}
+          color="primary"
+        >
+          {_.capitalize(filter)}
+        </Button>
       </Link>
     ));
 
     return (
-      <div className="">
-        <Link
-          className={this.styleSelector("all")}
-          to="/"
-          style={btnWidth}
-          onClick={() => this.clickHandler("all")}
-        >
-          <Button variant="outlined" color="primary">
+      <div className="categoriesFilter">
+        <Link to="/" onClick={() => this.clickHandler("all")}>
+          <Button
+            variant={this.state.active === "all" ? activeStyle : defaultStyle}
+            color="primary"
+          >
             All
           </Button>
         </Link>
         {renderLinks}
+        <NewPostButton />
       </div>
     );
   }

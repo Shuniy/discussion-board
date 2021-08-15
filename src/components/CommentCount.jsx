@@ -6,8 +6,10 @@ function CommentCount({ commentCount }) {
   const appendS = commentCount !== 1 && "s";
   return (
     <div>
-      <Typography className="">{commentCount}</Typography>
-      <Typography className=""> comment{appendS}</Typography>
+      <Typography>
+        {commentCount} comment{appendS}
+      </Typography>
+      <Typography> comment{appendS}</Typography>
     </div>
   );
 }

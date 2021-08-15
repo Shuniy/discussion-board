@@ -6,15 +6,19 @@ import TextField from "@material-ui/core/TextField";
 
 function InputText({ id, value, handleChange, required, disabled }) {
   return (
-    <div className="form-group">
-      <Typography variant="h5">
-        <label htmlFor={id}>{_.capitalize(id)}</label>
+    <div className="inputText">
+      <Typography variant="h6">
+        <label htmlFor={id}>
+          <strong>
+            <em>{_.capitalize(id)}</em>
+          </strong>
+        </label>
       </Typography>
 
       <TextField
+        style={{ marginTop: "2%", width: "100%" }}
         label={value}
         variant="outlined"
-        className=""
         id={id}
         value={value}
         required={required}

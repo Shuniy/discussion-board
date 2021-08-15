@@ -4,15 +4,18 @@ import _ from "lodash";
 import TextField from "@material-ui/core/TextField";
 import { Typography } from "@material-ui/core";
 
-
 function InputArea({ id, value, handleChange, required, label, disabled }) {
   return (
-    <div className="form-group">
-      <Typography variant='h5'>
-        <label htmlFor={id}>{_.capitalize(label)}</label>
+    <div className="inputArea">
+      <Typography variant="h5">
+        <label htmlFor={id}>
+          <strong>
+            <em>{_.capitalize(label)}</em>
+          </strong>
+        </label>
       </Typography>
       <TextField
-        className="form-control"
+        style={{ marginTop: "2%", width: "100%" }}
         id={id}
         label={label}
         variant="filled"

@@ -30,9 +30,9 @@ class CommentForm extends Component {
   render() {
     const { author, comment } = this.state;
     return (
-      <Card>
-        <CardContent>
-          <form className="my-4" onSubmit={this.handleSubmit}>
+      <Card raised>
+        <CardContent raised>
+          <form onSubmit={this.handleSubmit}>
             <InputText
               id="comment"
               value={comment}
@@ -40,15 +40,17 @@ class CommentForm extends Component {
               disabled={false}
               handleChange={this.handleChange}
             />
-            <InputText
-              id="author"
-              value={author}
-              required
-              disabled={false}
-              handleChange={this.handleChange}
-            />
-            <CardActions>
-              <div className="mt-4">
+            <div style={{ marginTop: "3%" }}>
+              <InputText
+                id="author"
+                value={author}
+                required
+                disabled={false}
+                handleChange={this.handleChange}
+              />
+            </div>
+            <CardActions style={{ marginTop: "3%" }} raised>
+              <div>
                 <Button color="primary" variant="contained" type="submit">
                   Add Comment
                 </Button>

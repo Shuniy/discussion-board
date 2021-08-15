@@ -20,19 +20,10 @@ class CommentEditForm extends Component {
   render() {
     return (
       <form onSubmit={this.editComment}>
-        <div className="input-group">
-          <TextField
-            className="form-control"
-            value={this.state.body}
-            onChange={this.changeHandler}
-          />
-          <div className="">
-            <Button
-              className=""
-              color="secondary"
-              variant="contained"
-              type="submit"
-            >
+        <div>
+          <TextField value={this.state.body} onChange={this.changeHandler} />
+          <div>
+            <Button color="secondary" variant="contained" type="submit">
               Submit
             </Button>
           </div>

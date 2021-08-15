@@ -4,9 +4,13 @@ import VoteButton from "./VoteButton";
 
 function VoteButtons({ voteUp, voteDown }) {
   return (
-    <div className="">
-      <VoteButton clickHandler={voteUp} type="add" />
-      <VoteButton clickHandler={voteDown} type="sub" />
+    <div className="voteButtons">
+      <div>
+        <VoteButton clickHandler={voteDown} type="sub" />
+      </div>
+      <div style={{ marginLeft: "3%" }}>
+        <VoteButton clickHandler={voteUp} type="add" />
+      </div>
     </div>
   );
 }

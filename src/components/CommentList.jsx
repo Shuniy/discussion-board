@@ -34,12 +34,8 @@ function CommentList(props) {
       editComment={editCommentHandler}
     />
   ));
-  console.log(props.comments)
-  return (
-    <Card className="">
-      <CardContent>{renderComments}</CardContent>
-    </Card>
-  );
+  console.log(props.comments);
+  return <div>{renderComments}</div>;
 }
 
 CommentList.propTypes = {

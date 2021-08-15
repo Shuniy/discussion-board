@@ -19,9 +19,7 @@ class NewPost extends Component {
     if (this.state.redirect) {
       return <Redirect to="/" />;
     }
-    return (
-        <PostForm submitPost={this.addPost} isNew />
-    );
+    return <PostForm submitPost={this.addPost} isNew />;
   }
 }
 

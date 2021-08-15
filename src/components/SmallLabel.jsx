@@ -5,8 +5,8 @@ import Typography from "@material-ui/core/Typography";
 function SmallLabel({ label }) {
   return (
     <div>
-      <Typography variant='h6'>
-        {label}
+      <Typography>
+        <strong>{label}</strong>
       </Typography>
     </div>
   );

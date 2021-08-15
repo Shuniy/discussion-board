@@ -11,6 +11,7 @@ import {
   addComment,
   getAllCommentsByPostId,
 } from "../actions";
+import { Container } from "@material-ui/core";
 
 class PostDetailPage extends Component {
   state = {};
@@ -36,14 +37,14 @@ class PostDetailPage extends Component {
     );
 
     return (
-      <div>
+      <Container style={{ marginTop: "3%", marginBottom: "3%", width: "75%" }}>
         <PostDetail post={post} />
         <hr />
         <CommentForm addComment={this.addCommentHandler} />
         <hr />
         {console.log(this.props)}
         {renderCommentList}
-      </div>
+      </Container>
     );
   }
 }

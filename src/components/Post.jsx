@@ -43,38 +43,58 @@ class Post extends Component {
 
     const badgeColor = voteScore >= 10 ? "badge-danger" : "badge-secondary";
 
-    return (
-      <Card>
-        <CardContent>
-          <li className="">
-            <div className="">
-              <div className="">
-                <Link className="" to={`/${category}/${id}`}>
-                  <Typography variant='h4'>{title}</Typography>
-                </Link>
-              </div>
-            </div>
-            <SmallLabel label={`post by ${author}`} />
-            <Badge label={category} />
-            <Badge label="Vote" badgeColor={badgeColor} voteCount={voteScore} />
-            <Typography variant='h6' color='textSecondary' className="">
-              <TextTruncate line={1} truncateText="..." text={body} />
-            </Typography>
-            <div className="">
-              <div>
-                <SmallLabel label={dateFormat(timestamp)} />
-                <CommentCount commentCount={commentCount} />
-              </div>
-            </div>
-          </li>
-        </CardContent>
+    const cardStyle = {
+      display: "block",
+      width: "500px",
+      transitionDuration: "all 0.3s",
+      margin: "1%",
+    };
 
-        <CardActions>
-          <EditBadge link={`/${category}/${id}/edit`} />
-          <VoteButtons voteUp={this.voteUp} voteDown={this.voteDown} />
-          <CloseButton closeHandler={this.deletePost} />
-        </CardActions>
-      </Card>
+    const contentStyle = {
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-around",
+    };
+
+    const actionsStyle = {
+      display: "flex",
+      justifyContent: "space-between",
+    };
+
+    return (
+      <div classname="post">
+        <Card style={cardStyle} raised>
+          <CardContent raised style={contentStyle}>
+            <div className="titleAuthor">
+              <Link to={`/${category}/${id}`}>
+                <Typography variant="h4">
+                  <em>{title}</em>
+                </Typography>
+              </Link>
+              <SmallLabel label={`Post by : ${author}`} />
+            </div>
+
+            <div className="information">
+              <Badge label={category} />
+              <Badge
+                label="Vote"
+                voteCount={voteScore}
+              />
+              <Typography variant="h6" color="textSecondary">
+                <TextTruncate line={1} truncateText="..." text={body} />
+              </Typography>
+              <SmallLabel label={dateFormat(timestamp)} />
+              <CommentCount commentCount={commentCount} />
+            </div>
+          </CardContent>
+
+          <CardActions raised style={actionsStyle}>
+            <EditBadge link={`/${category}/${id}/edit`} />
+            <VoteButtons voteUp={this.voteUp} voteDown={this.voteDown} />
+            <CloseButton closeHandler={this.deletePost} />
+          </CardActions>
+        </Card>
+      </div>
     );
   }
 }

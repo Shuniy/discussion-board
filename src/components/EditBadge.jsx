@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button";
 
 function EditBadge({ link }) {
   return (
-    <Link className="" to={link}>
+    <Link to={link}>
       <Button variant="contained" color="secondary">
         Edit
       </Button>

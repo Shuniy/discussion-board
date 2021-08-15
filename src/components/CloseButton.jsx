@@ -6,7 +6,7 @@ import Button from "@material-ui/core/Button";
 function CloseButton({ closeHandler }) {
   return (
     <Button variant="contained" color="secondary" onClick={closeHandler}>
-      <CloseIcon />
+      DELETE (<CloseIcon />)
     </Button>
   );
 }

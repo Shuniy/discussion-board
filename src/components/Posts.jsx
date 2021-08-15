@@ -9,7 +9,7 @@ function Posts({ posts }) {
     ) : (
       <div />
     );
-  return <ul className="list-group">{renderPosts}</ul>;
+  return <div className="posts">{renderPosts}</div>;
 }
 
 Posts.defaultProps = {

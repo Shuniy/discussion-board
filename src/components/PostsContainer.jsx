@@ -1,20 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Filter from "./Filter";
-import NewPostButton from "./NewPostButton";
 import RadioForSort from "./RadioForSort";
 import Posts from "./Posts";
 import { getSortedPosts } from "../utils/helper";
+import { Container } from "@material-ui/core";
 
 function PostsContainer({ filter, sortBy, posts, changeSortBy }) {
   return (
-    <div className="mt-5 container">
-      <Filter filter={filter} />
-      <NewPostButton />
-      <div className="my-4">
+    <div className="postsContainer">
+      <Container>
+        <Filter filter={filter} />
         <RadioForSort sortBy={sortBy} changeHandler={changeSortBy} />
         <Posts posts={getSortedPosts(posts, sortBy)} />
-      </div>
+      </Container>
     </div>
   );
 }

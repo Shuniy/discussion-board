@@ -36,11 +36,7 @@ class EditPost extends Component {
       return <NotFound />;
     }
 
-    return (
-      <Card className="">
-        <PostForm submitPost={this.editPost} post={post} isNew={false} />
-      </Card>
-    );
+    return <PostForm submitPost={this.editPost} post={post} isNew={false} />;
   }
 }
 

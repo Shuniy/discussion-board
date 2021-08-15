@@ -6,14 +6,16 @@ import Radio from "@material-ui/core/Radio";
 function RadioButton({ evtName, val, handleChange, checked, disabled }) {
   return (
     <label htmlFor={val} style={{ width: "100px" }}>
-      <Radio
-        id={val}
-        value={val}
-        onChange={(e) => handleChange(e, evtName)}
-        checked={checked}
-        disabled={disabled}
-      />
-      <h4>{_.capitalize(val)}</h4>
+      <div className="radioButton">
+        <Radio
+          id={val}
+          value={val}
+          onChange={(e) => handleChange(e, evtName)}
+          checked={checked}
+          disabled={disabled}
+        />
+        <h4>{_.capitalize(val)}</h4>
+      </div>
     </label>
   );
 }

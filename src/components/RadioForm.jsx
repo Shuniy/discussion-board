@@ -35,9 +35,13 @@ class RadioForm extends Component {
     );
 
     return (
-      <div>
-        <div>{label}</div>
-        <div data-toggle="buttons">{renderRadioBtn}</div>
+      <div className="radioForm">
+        <div>
+          <strong>{label}</strong>
+        </div>
+        <div className="radioFormButtons" data-toggle="buttons">
+          {renderRadioBtn}
+        </div>
       </div>
     );
   }

@@ -4,8 +4,8 @@ import Button from "@material-ui/core/Button";
 
 function NewPostButton() {
   return (
-    <div className="">
-      <Link className="" to="/new">
+    <div className="newPostButton">
+      <Link to="/new">
         <Button variant="contained" color="secondary">
           New Post
         </Button>

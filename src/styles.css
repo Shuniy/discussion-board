@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  align-items: center;
+}
+
+.App {
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Posts Container / Home Page */
+
+.postsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.categoriesFilter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.radioForSort {
+  text-align: center;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  display: flex;
+  margin-top: 3%;
+}
+
+.posts {
+  margin-top: 4%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.titleAuthor {
+  display: flex;
+  flex-direction: column;
+}
+.information {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.badge {
+  display: flex;
+}
+
+.radioForm {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.radioFormButtons {
+  display: flex;
+  justify-content: center;
+}
+
+.radioButton {
+  display: flex;
+}
+
+.radioForSortButton {
+  display: flex;
+}
+
+.newPostTitle,
+.newPostContent,
+.newPostAuthor {
+  margin-top: 4%;
+}
+
+.inputText {
+  display: flex;
+  flex-direction: column;
+}
+
+.voteButtons {
+  display: flex;
+  justify-content: space-between;
+}

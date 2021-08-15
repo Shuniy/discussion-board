@@ -13,23 +13,20 @@ import Fab from "@material-ui/core/Fab";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Zoom from "@material-ui/core/Zoom";
 import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
 import AllPosts from "../routes/AllPosts";
 import PostsByCategory from "../routes/PostsByCategory";
 import NewPost from "../routes/NewPost";
 import PostDetailPage from "../routes/PostDetailPage";
 import EditPost from "../routes/EditPost";
 import NotFound from "../routes/NotFound";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     position: "fixed",
+    color: "#FFFFFF",
     bottom: theme.spacing(2),
     right: theme.spacing(2),
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
   },
   title: {
     flexGrow: 1,
@@ -39,9 +36,6 @@ const useStyles = makeStyles((theme) => ({
 function ScrollTop(props) {
   const { children, window } = props;
   const classes = useStyles();
-  // Note that you normally won't need to set the window ref as useScrollTrigger
-  // will default to window.
-  // This is only being set here because the demo is in an iframe.
   const trigger = useScrollTrigger({
     target: window ? window() : undefined,
     disableHysteresis: true,
@@ -69,32 +63,57 @@ function ScrollTop(props) {
 
 ScrollTop.propTypes = {
   children: PropTypes.element.isRequired,
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   window: PropTypes.func,
 };
 
-export default function Home(props) {
+function Home(props) {
   const classes = useStyles();
   return (
     <React.Fragment>
       <CssBaseline />
       <AppBar>
-        <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            Discussion Board
+        <Toolbar style={{ display: "flex", flexWrap: "wrap" }}>
+          <Typography variant="h5" className={classes.title}>
+            <Link to="/" style={{ color: "white" }}>
+              Discussion Board
+            </Link>
           </Typography>
-          <Button color="inherit">Create Post</Button>
+
+          <Link to="/">
+            <Button style={{ color: "white" }}>All Posts</Button>
+          </Link>
+          <Link to="/react">
+            <Button style={{ color: "white", marginLeft: "50px" }}>
+              React
+            </Button>
+          </Link>
+          <Link to="/redux">
+            <Button style={{ color: "white", marginLeft: "50px" }}>
+              Redux
+            </Button>
+          </Link>
+          <Link to="/miscellaneous">
+            <Button
+              style={{
+                color: "white",
+                marginLeft: "50px",
+                marginRight: "50px",
+              }}
+            >
+              Miscellaneous
+            </Button>
+          </Link>
+          <Link to="/new">
+            <Button
+              raised
+              style={{
+                color: "white",
+                backgroundColor: "#f50057",
+              }}
+            >
+              Create Post
+            </Button>
+          </Link>
         </Toolbar>
       </AppBar>
       <Toolbar id="back-to-top-anchor" />
@@ -119,3 +138,5 @@ export default function Home(props) {
     </React.Fragment>
   );
 }
+
+export default Home;

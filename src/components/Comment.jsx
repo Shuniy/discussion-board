@@ -48,41 +48,33 @@ class Comment extends Component {
     const renderCommentBody = this.state.editMode ? (
       <CommentEditForm defaultVal={body} editComment={this.editComment} />
     ) : (
-      <div className="">
-        <div className="">
-          <Typography>
-            <strong>{body}</strong>
-          </Typography>
-        </div>
-      </div>
+      <Typography>
+        <strong>{body}</strong>
+      </Typography>
     );
 
     const badgeColor = voteScore >= 10 ? "badge-danger" : "badge-secondary";
     return (
-      <Card className="">
-        <CardContent>
+      <Card style={{ marginBottom: "2%" }} raised>
+        <CardContent raised>
           {renderCommentBody}
-          <Badge label="Vote" badgeColor={badgeColor} voteCount={voteScore} />
-          <Typography className="text-muted">
-            {dateFormatGlobal(timestamp)}
-          </Typography>
-          <Typography className="text-muted">commented by {author}</Typography>
+          <Badge label="Vote" voteCount={voteScore} />
+          <Typography>{dateFormatGlobal(timestamp)}</Typography>
+          <Typography>commented by {author}</Typography>
         </CardContent>
 
-        <CardActions>
+        <CardActions
+          style={{ display: "flex", justifyContent: "space-between" }}
+          raised
+        >
+          <Button color="primary" variant="contained" onClick={this.editMode}>
+            Edit
+          </Button>
           <VoteButtons voteUp={this.upVote} voteDown={this.downVote} />
           <CloseButton
             closeStyle="text-muted"
             closeHandler={this.deleteComment}
           />
-          <Button
-            className=""
-            color="primary"
-            variant="contained"
-            onClick={this.editMode}
-          >
-            Edit
-          </Button>
         </CardActions>
       </Card>
     );

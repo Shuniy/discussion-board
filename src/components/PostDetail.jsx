@@ -46,30 +46,29 @@ class PostDetail extends Component {
       commentCount,
     } = this.props.post;
 
-    const badgeColor = voteScore >= 10 ? "badge-danger" : "badge-secondary";
-
     return (
-      <Card>
-        <CardContent>
-          <div className="">
-              <Typography variant="h3" className="">
-                {title}
-              </Typography>
+      <Card raised>
+        <CardContent raised>
+          <div>
+            <Typography variant="h4">{title}</Typography>
           </div>
           <Typography>Post By {author}</Typography>
           <Typography>{dateFormat(timestamp)}</Typography>
           <div>
             <Badge label={category} />
-            <Badge label="Vote" badgeColor={badgeColor} voteCount={voteScore} />
+            <Badge label="Vote" voteCount={voteScore} />
           </div>
-          <div className="">
+          <div>
             <Typography>{body}</Typography>
           </div>
-          <div className="">
+          <div>
             <CommentCount commentCount={commentCount} />
           </div>
         </CardContent>
-        <CardActions>
+        <CardActions
+          style={{ display: "flex", justifyContent: "space-between" }}
+          raised
+        >
           <EditBadge link={`/${category}/${id}/edit`} />
           <VoteButtons voteUp={this.voteUp} voteDown={this.voteDown} />
           <CloseButton closeHandler={this.deletePost} />
