@@ -4,12 +4,19 @@ import _ from "lodash";
 import Typography from "@material-ui/core/Typography";
 
 function Badge({ label, voteCount }) {
-  const voteBadge = voteCount !== undefined && <h4> {voteCount}</h4>;
-
   return (
-    <Typography variant="h6">
-      <div>{_.capitalize(label)}</div>
-      {voteBadge ? voteBadge : <div></div>}
+    <Typography style={{ fontSize: "16px", fontStyle: "italic" }}>
+      {voteCount ? (
+        <div>
+          <strong>
+            {_.capitalize(label)}s : {voteCount}
+          </strong>
+        </div>
+      ) : (
+        <div>
+          <strong>Category : {_.capitalize(label)}</strong>
+        </div>
+      )}
     </Typography>
   );
 }

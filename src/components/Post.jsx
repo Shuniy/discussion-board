@@ -41,8 +41,6 @@ class Post extends Component {
       voteScore,
     } = this.props.post;
 
-    const badgeColor = voteScore >= 10 ? "badge-danger" : "badge-secondary";
-
     const cardStyle = {
       display: "block",
       width: "500px",
@@ -67,7 +65,7 @@ class Post extends Component {
           <CardContent raised style={contentStyle}>
             <div className="titleAuthor">
               <Link to={`/${category}/${id}`}>
-                <Typography variant="h4">
+                <Typography variant="h4" component='h3'>
                   <em>{title}</em>
                 </Typography>
               </Link>

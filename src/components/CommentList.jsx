@@ -9,8 +9,6 @@ import {
   editComment,
 } from "../actions";
 
-import { Card, CardContent } from "@material-ui/core";
-
 function CommentList(props) {
   const upVoteHandler = (id) => {
     props.upVoteToComment(id);

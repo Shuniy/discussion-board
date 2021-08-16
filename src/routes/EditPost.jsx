@@ -5,7 +5,6 @@ import { Redirect } from "react-router-dom";
 import PostForm from "../components/PostForm";
 import NotFound from "./NotFound";
 import { getPostByPostId, editPostByPostId } from "../actions";
-import Card from "@material-ui/core/Card";
 
 class EditPost extends Component {
   state = {

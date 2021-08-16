@@ -48,19 +48,17 @@ class Comment extends Component {
     const renderCommentBody = this.state.editMode ? (
       <CommentEditForm defaultVal={body} editComment={this.editComment} />
     ) : (
-      <Typography>
+      <Typography style={{fontSize:'19px'}} component='em'>
         <strong>{body}</strong>
       </Typography>
     );
-
-    const badgeColor = voteScore >= 10 ? "badge-danger" : "badge-secondary";
     return (
       <Card style={{ marginBottom: "2%" }} raised>
         <CardContent raised>
           {renderCommentBody}
+          <Typography variant='body2'>commented by {author}</Typography>
           <Badge label="Vote" voteCount={voteScore} />
-          <Typography>{dateFormatGlobal(timestamp)}</Typography>
-          <Typography>commented by {author}</Typography>
+          <Typography variant='body2'>{dateFormatGlobal(timestamp)}</Typography>
         </CardContent>
 
         <CardActions

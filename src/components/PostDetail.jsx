@@ -50,16 +50,24 @@ class PostDetail extends Component {
       <Card raised>
         <CardContent raised>
           <div>
-            <Typography variant="h4">{title}</Typography>
+            <Typography variant="h5">
+              <strong>{title}</strong>
+            </Typography>
           </div>
-          <Typography>Post By {author}</Typography>
-          <Typography>{dateFormat(timestamp)}</Typography>
+          <Typography variant="body1">
+            <em>Post By {author}</em>
+          </Typography>
+          <Typography variant="body1">
+            <em>{dateFormat(timestamp)}</em>
+          </Typography>
           <div>
             <Badge label={category} />
             <Badge label="Vote" voteCount={voteScore} />
           </div>
           <div>
-            <Typography>{body}</Typography>
+            <Typography variant="h6" component="p" color="textSecondary">
+              {body}
+            </Typography>
           </div>
           <div>
             <CommentCount commentCount={commentCount} />

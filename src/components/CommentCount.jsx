@@ -7,9 +7,10 @@ function CommentCount({ commentCount }) {
   return (
     <div>
       <Typography>
-        {commentCount} comment{appendS}
+        <strong>
+          {commentCount} comment{appendS}
+        </strong>
       </Typography>
-      <Typography> comment{appendS}</Typography>
     </div>
   );
 }
